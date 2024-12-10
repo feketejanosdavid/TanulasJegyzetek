@@ -9,6 +9,7 @@ docker pull mcr.microsoft.com/mssql/server
 Ez letölti a Microsoft SQL Server Docker image-t a mcr.microsoft.com/mssql/server tárolóból, ami lehetővé teszi a SQL Server konténer futtatását.
 
 
+
 ```bash
 docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=Titok2024" -p 1433:1433 -d mcr.microsoft.com/mssql/server
 ```
@@ -18,6 +19,7 @@ docker run: Egy új Docker konténert indít.
 - -p 1433:1433: A konténer 1433-as portját a géped 1433-as portjához rendeli, így elérheted az SQL Server-t kívülről is.
 - -d: A konténert háttérben (detached mode) futtatja.
 - mcr.microsoft.com/mssql/server: Ez az SQL Server Docker image, amit futtatni szeretnél.
+
 
 
 ```bash
@@ -37,11 +39,13 @@ sqlcmd: Az SQL Server parancssori eszköze, amely lehetővé teszi SQL lekérdez
 Az SQL CREATE DATABASE parancsot használjuk új adatbázis létrehozására. A name helyére az adatbázis nevét kell írni.
 
 
+
 ```bash
 1> USE databasename
 2> GO
 ```
 Az SQL USE parancs segítségével váltasz az aktuálisan használt adatbázisra. A databasename helyére az adatbázis nevét kell beírni, amelyet használni szeretnél.
+
 
 
 ```bash
@@ -57,6 +61,7 @@ Az SQL USE parancs segítségével váltasz az aktuálisan használt adatbázisr
 - megnevezes VARCHAR(30): A megnevezes oszlop egy VARCHAR típusú, 30 karakter hosszú szöveges adatot tárol.
 
 
+
 ```bash
 1> CREATE TABLE tipusjellemzok(
 2>     az INT PRIMARY KEY,
@@ -65,6 +70,7 @@ Az SQL USE parancs segítségével váltasz az aktuálisan használt adatbázisr
 5> GO
 ```
 Ez az SQL parancs ugyanúgy működik, mint az előző, csak más néven és oszlopokkal hoz létre egy új táblát.
+
 
 
 ```bash
@@ -92,6 +98,7 @@ Ez az SQL parancs ugyanúgy működik, mint az előző, csak más néven és osz
 - VALUES: A beszúrandó adatokat adja meg. Minden sor egy-egy adatbejegyzést jelent, amely az oszlopoknak megfelelően kerül elhelyezésre.
 
 
+
 ```bash
 1> INSERT INTO teteltipusok  
 2> VALUES
@@ -103,6 +110,7 @@ Ez az SQL parancs ugyanúgy működik, mint az előző, csak más néven és osz
 8> GO
 ```
 Ugyanúgy működik, mint az előző INSERT INTO, csak más adatokkal és más táblába történik a beszúrás.
+
 
 
 ```bash

@@ -173,3 +173,37 @@ Notebook tanulói számítógép    háttértár
 Notebook tanulói számítógép    egér
 Notebook tanulói számítógép    tápegység
 ```
+
+## Létrehoztunk egy console app .NET projectet visal studioban
+
+```cs
+using System.Data;
+using System.Data.SqlClient;
+```
+**Program.cs** fájlban a fejléchez beimportáljuk ezt a kettőt
+
+
+
+```cs
+SqlConnection kapcsolat = new SqlConnection("SERVER=172.26.64.1;USER=sa;PASSWORD=Titok2024");
+kapcsolat.Open();
+
+SqlCommand parancs = new SqlCommand("USE bzshkulkerleltar", kapcsolat);
+parancs.ExecuteNonQuery();
+
+parancs = new SqlCommand("SELECT megnevezes FROM tipusjellemzokapcsolatok, tipusjellemzok WHERE tipusID=1 AND jellemzoID=1",  kapcsolat);
+SqlDataReader olvaso = parancs.ExecuteReader();
+while (olvaso.Read())
+{
+    Console.Write(olvaso["megnevezes"] + ": ");
+    string adat = Console.ReadLine();
+}
+
+Console.Write("\nMennyiség: ");
+int db = int.Parse(Console.ReadLine());
+for (int i = 1; i <= db; i++) 
+{
+    Console.WriteLine("KT-13/" + i);
+}
+Console.ReadKey();
+```

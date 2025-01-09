@@ -32,3 +32,24 @@ npx expo install react-dom react-native-web @expo/metro-runtime
 npx expo start
 ```
 Amint elindult egy **w** billentyűt lenyomunk, így megtudjuk nyitni a böngészőben.
+
+
+
+# 2024.01.09
+
+```javascript
+import '@expo/metro-runtime';
+```
+Ezzel autómatikusan frissül az oldal fejlesztés közben.
+
+```bash
+npx expo start --host tunnel
+```
+Expo go appal telefonon is lehet nézni. QR kódot be kell olvasni, és akkor megjelenik.
+
+## Fake rest api készítése:
+
+```bash
+npm create sip@latest
+```
+Express API-t, vagy a MOCKAPI-t válasszuk a végén
